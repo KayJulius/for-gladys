@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>For Gladys 🤍</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255,255,255,0.9);
+      padding: 30px 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 420px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #ff4d6d;
+      font-size: 24px;
+      min-height: 60px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .heart {
+      position: absolute;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1 id="text">Klik tombolnya 🤍</h1>
+    <button onclick="next()">Klik</button>
+  </div>
+
+  <script>
+    const texts = [
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍",
+      "I LOVEEEEEE UUUUUU 🤍🤍"
+    ];
+    let i = 0;
+
+    function next() {
+      document.getElementById("text").innerText = texts[i];
+      i = (i + 1) % texts.length;
+    }
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "🤍";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 12 + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+  </script>
+
+</body>
+</html>
