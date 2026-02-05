@@ -83,13 +83,6 @@
   <div class="card hidden" id="page2">
     <h1>
       Tuliskann perasaan kamuu selamaaaa kitaaa samaa samaa sampee sekaranggg
-    </h1>
-    <p>Scroll dikit, ada kucing lewat 🐱</p>
-    <button onclick="goPage(3)">Lanjut</button>
-  </div>
-
-  <!-- PAGE 3 -->
-  <div class="card hidden" id="page3">
     <h1>Tulis pesan buat aku 🤍</h1>
     <textarea id="message" placeholder="Tulis di sini ya..."></textarea>
     <br />
@@ -103,11 +96,10 @@
     function goPage(n) {
       document.getElementById("page1").classList.add("hidden");
       document.getElementById("page2").classList.add("hidden");
-      document.getElementById("page3").classList.add("hidden");
-
+      
       document.getElementById("page" + n).classList.remove("hidden");
 
-      // Kucing muncul di page 2 dan 3
+      // Kucing muncul di page 2
       const cat = document.getElementById("cat");
       if (n >= 2) cat.classList.remove("hidden");
       else cat.classList.add("hidden");
@@ -120,7 +112,7 @@
         return;
       }
       // GANTI nomor WhatsApp kamu di bawah ini (format internasional, tanpa +)
-      const waNumber = "62812XXXXXXX";
+      const waNumber = "6285126071559";
       const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
       window.open(url, "_blank");
       document.getElementById("sentInfo").innerText = "Pesan dibuka di WhatsApp kamu.";
