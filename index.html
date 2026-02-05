@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>For Bochillllkuuuu 🤍</title>
+  <title>For Gladys 🤍</title>
   <style>
     body {
       margin: 0;
@@ -14,53 +14,19 @@
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       overflow: hidden;
     }
-
-    .marquee {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      white-space: nowrap;
-      font-size: 22px;
-      color: rgba(255,255,255,0.6);
-      animation: move 12s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes move {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0%); }
-    }
-
     .card {
       background: rgba(255,255,255,0.92);
-      padding: 30px 36px;
+      padding: 28px 34px;
       border-radius: 16px;
       text-align: center;
       max-width: 560px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       z-index: 2;
     }
-
-    h1 {
-      color: #ff4d6d;
-      font-size: 20px;
-      line-height: 1.4;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 100px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      font-size: 14px;
-      resize: vertical;
-      margin-top: 10px;
-    }
-
+    h1 { color: #ff4d6d; font-size: 22px; line-height: 1.4; }
     button {
       margin-top: 14px;
-      padding: 10px 26px;
+      padding: 10px 24px;
       border: none;
       border-radius: 20px;
       background: #ff4d6d;
@@ -68,16 +34,35 @@
       font-size: 16px;
       cursor: pointer;
     }
-
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 14px;
+      resize: vertical;
+    }
     .hidden { display: none; }
+
+    /* background running texts */
+    .loveText {
+      position: fixed;
+      white-space: nowrap;
+      font-weight: bold;
+      color: rgba(255,255,255,0.75);
+      animation: move linear infinite;
+      pointer-events: none;
+      z-index: 1;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    @keyframes move {
+      from { transform: translateX(-120vw); }
+      to { transform: translateX(120vw); }
+    }
   </style>
 </head>
 <body>
-
-  <div class="marquee">
-    I LOVEEEEEEEEEEE UUUUUUUUU 🤍🤍 &nbsp;&nbsp; I LOVEEEEEEEEEEE UUUUUUUUU 🤍🤍 &nbsp;&nbsp; 
-    I LOVEEEEEEEEEEE UUUUUUUUU 🤍🤍 &nbsp;&nbsp; I LOVEEEEEEEEEEE UUUUUUUUU 🤍🤍
-  </div>
 
   <!-- PAGE 1 -->
   <div class="card" id="page1">
@@ -88,15 +73,17 @@
   <!-- PAGE 2 -->
   <div class="card hidden" id="page2">
     <h1>Tuliskannnn Perasaannn kamuu selamaaa samaaa akuuuu</h1>
-    <textarea id="msg1" placeholder="Tulis di sini yaa..."></textarea>
-    <button onclick="sendWA(1)">kirimmmm</button>
+    <textarea id="msg1" placeholder="Tulis di sini..."></textarea>
+    <br />
+    <button onclick="goPage(3)">Kirim</button>
   </div>
 
   <!-- PAGE 3 -->
   <div class="card hidden" id="page3">
     <h1>Kasiiii tauuu akuuuu permintaaann kamuuu dann harapann kamuu ke akuuu</h1>
-    <textarea id="msg2" placeholder="Tulis di sini yaa..."></textarea>
-    <button onclick="sendWA(2)">kirimmmm</button>
+    <textarea id="msg2" placeholder="Tulis di sini..."></textarea>
+    <br />
+    <button onclick="goPage(4)">Kirim</button>
   </div>
 
   <!-- PAGE 4 -->
@@ -106,37 +93,46 @@
       MAAKASIII UDAAAA PILIHH AKUUU  
       SEMANGATTT TERUSS YAAAA CANTII  
       JANGAN MENYERAHHHH  
-      AKUU AKAN ADA SELALUU BUATT KAMUUU
+      AUU AKAN ADA SELALUU BUATT KAMUUU
     </h1>
+    <button onclick="sendAll()">Selesaiiii yaa?? Kirimm sinii</button>
+    <p style="font-size:12px;color:#777;">
+      (Nanti kebuka WhatsApp kamu, tinggal tekan Kirim)
+    </p>
   </div>
 
   <script>
-    const waNumber = "6252126071559"; // nomor kamu
-
     function goPage(n) {
-      ["page1","page2","page3","page4"].forEach(id => {
-        document.getElementById(id).classList.add("hidden");
-      });
+      ["page1","page2","page3","page4"].forEach(id =>
+        document.getElementById(id).classList.add("hidden")
+      );
       document.getElementById("page" + n).classList.remove("hidden");
     }
 
-    function sendWA(step) {
-      let text = "";
-      if (step === 1) {
-        text = document.getElementById("msg1").value.trim();
-        if (!text) return;
-        const url = `https://wa.me/${waNumber}?text=${encodeURIComponent("Perasaan kamu:\n" + text)}`;
-        window.open(url, "_blank");
-        goPage(3);
-      }
-      if (step === 2) {
-        text = document.getElementById("msg2").value.trim();
-        if (!text) return;
-        const url = `https://wa.me/${waNumber}?text=${encodeURIComponent("Permintaan & harapan kamu:\n" + text)}`;
-        window.open(url, "_blank");
-        goPage(4);
-      }
+    function sendAll() {
+      const m1 = document.getElementById("msg1").value.trim();
+      const m2 = document.getElementById("msg2").value.trim();
+      const finalMsg =
+        "Perasaan kamu:\n" + m1 + "\n\n" +
+        "Permintaan & harapan:\n" + m2;
+
+      const waNumber = "6252126071559"; // nomor kamu
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(finalMsg)}`;
+      window.open(url, "_blank");
     }
+
+    // generate running love texts everywhere
+    function spawnLove() {
+      const el = document.createElement("div");
+      el.className = "loveText";
+      el.innerText = "I LOVEEEEEEEEEEE UUUUUUUUU 🤍🤍";
+      el.style.top = Math.random() * 100 + "vh";
+      el.style.fontSize = (Math.random() * 16 + 14) + "px";
+      el.style.animationDuration = (Math.random() * 6 + 6) + "s";
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 15000);
+    }
+    setInterval(spawnLove, 500);
   </script>
 
 </body>
