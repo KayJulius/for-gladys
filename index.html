@@ -15,20 +15,17 @@
       overflow: hidden;
     }
     .card {
-      background: rgba(255,255,255,0.9);
-      padding: 30px 40px;
+      background: rgba(255,255,255,0.92);
+      padding: 30px 36px;
       border-radius: 16px;
       text-align: center;
-      max-width: 420px;
+      max-width: 520px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
-    h1 {
-      color: #ff4d6d;
-      font-size: 24px;
-      min-height: 60px;
-    }
+    h1 { color: #ff4d6d; font-size: 22px; min-height: 56px; }
+    p { color: #444; }
     button {
-      margin-top: 20px;
+      margin-top: 14px;
       padding: 10px 24px;
       border: none;
       border-radius: 20px;
@@ -37,6 +34,22 @@
       font-size: 16px;
       cursor: pointer;
     }
+    .hidden { display: none; }
+
+    /* Kucing jalan */
+    .cat {
+      position: fixed;
+      bottom: 10px;
+      left: -120px;
+      font-size: 60px;
+      animation: walk 10s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes walk {
+      from { left: -120px; }
+      to { left: 110vw; }
+    }
+
     .heart {
       position: absolute;
       animation: float 6s linear infinite;
@@ -46,40 +59,74 @@
       from { transform: translateY(100vh); }
       to { transform: translateY(-10vh); }
     }
+
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 14px;
+      resize: vertical;
+    }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1 id="text">Klik tombolnya 🤍</h1>
-    <button onclick="next()">Klik</button>
+  <!-- PAGE 1 -->
+  <div class="card" id="page1">
+    <h1>I LOVEEEEEE UUUUUU 🤍🤍</h1>
+    <button onclick="goPage(2)">Klik</button>
   </div>
 
-  <script>
-    const texts = [
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍",
-      "I LOVEEEEEE UUUUUU 🤍🤍"
-    ];
-    let i = 0;
+  <!-- PAGE 2 -->
+  <div class="card hidden" id="page2">
+    <h1>
+      Tuliskann perasaan kamuu selamaaaa kitaaa samaa samaa sampee sekaranggg
+    </h1>
+    <p>Scroll dikit, ada kucing lewat 🐱</p>
+    <button onclick="goPage(3)">Lanjut</button>
+  </div>
 
-    function next() {
-      document.getElementById("text").innerText = texts[i];
-      i = (i + 1) % texts.length;
+  <!-- PAGE 3 -->
+  <div class="card hidden" id="page3">
+    <h1>Tulis pesan buat aku 🤍</h1>
+    <textarea id="message" placeholder="Tulis di sini ya..."></textarea>
+    <br />
+    <button onclick="sendMessage()">Kirim ke aku</button>
+    <p id="sentInfo" style="font-size:12px;color:#777;"></p>
+  </div>
+
+  <div class="cat hidden" id="cat">🐱</div>
+
+  <script>
+    function goPage(n) {
+      document.getElementById("page1").classList.add("hidden");
+      document.getElementById("page2").classList.add("hidden");
+      document.getElementById("page3").classList.add("hidden");
+
+      document.getElementById("page" + n).classList.remove("hidden");
+
+      // Kucing muncul di page 2 dan 3
+      const cat = document.getElementById("cat");
+      if (n >= 2) cat.classList.remove("hidden");
+      else cat.classList.add("hidden");
     }
 
+    function sendMessage() {
+      const text = document.getElementById("message").value.trim();
+      if (!text) {
+        document.getElementById("sentInfo").innerText = "Pesannya masih kosong.";
+        return;
+      }
+      // GANTI nomor WhatsApp kamu di bawah ini (format internasional, tanpa +)
+      const waNumber = "62812XXXXXXX";
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+      document.getElementById("sentInfo").innerText = "Pesan dibuka di WhatsApp kamu.";
+    }
+
+    // hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -88,7 +135,7 @@
       heart.style.fontSize = Math.random() * 20 + 12 + "px";
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 6000);
-    }, 400);
+    }, 450);
   </script>
 
 </body>
