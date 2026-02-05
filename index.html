@@ -112,7 +112,7 @@
         "Perasaan kamu:\n" + m1 + "\n\n" +
         "Permintaan & harapan:\n" + m2;
 
-      const waNumber = "6252126071559"; // nomor kamu
+      const waNumber = "6285126071559"; // nomor kamu
       const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(finalMsg)}`;
       window.open(url, "_blank");
     }
@@ -126,12 +126,13 @@
       el.style.fontSize = (Math.random() * 18 + 22) + "px";
       el.style.animationDuration = (Math.random() * 7 + 9) + "s";
       document.body.appendChild(el);
-      setTimeout(() => el.remove(), 15000);
+      setTimeout(() => el.remove(), 25000);
     }
     setInterval(spawnLove, 250);
   </script>
 
 </body>
 </html>
+
 
 
