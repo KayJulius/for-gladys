@@ -1,130 +1,114 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <title>Untuk Gladys 💙</title>
+  <meta charset="UTF-8">
+  <title>For You 🤍</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .screen {
-      width: 100vw;
-      height: 100vh;
-      display: none;
+      font-family: Arial, sans-serif;
+      background: #0f1220;
+      color: #fff;
+      display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      background-size: cover;
-      background-position: center;
-      transition: opacity 1s ease;
+      min-height: 100vh;
+      margin: 0;
     }
 
-    .show {
-      display: flex;
+    .card {
+      background: #1c1f3a;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    textarea {
+      width: 100%;
+      height: 80px;
+      border-radius: 8px;
+      border: none;
+      padding: 10px;
+      margin-top: 5px;
+      resize: none;
+      font-size: 14px;
     }
 
     button {
-      margin-top: 20px;
-      padding: 12px 24px;
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
       border: none;
-      border-radius: 12px;
-      background: #60a5fa;
-      color: #0f172a;
-      font-size: 16px;
+      border-radius: 8px;
+      background: #ff6fae;
+      color: #000;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    button:hover {
-      background: #93c5fd;
+    .hidden {
+      display: none;
     }
 
-    .box {
-      background: rgba(0,0,0,0.5);
-      padding: 24px;
-      border-radius: 16px;
-      max-width: 80%;
-    }
-
-    #cat {
-      width: 200px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-
-    .chat {
-      margin-top: 16px;
-      min-height: 60px;
-      font-size: 18px;
+    .long-text {
+      margin-top: 15px;
+      background: #111428;
+      padding: 15px;
+      border-radius: 8px;
+      max-height: 200px;   /* ini biar ga kepanjangan layar */
+      overflow-y: auto;   /* ini biar bisa di scroll */
+      font-size: 13px;
+      line-height: 1.6;
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
+  <div class="card">
+    <h2>🤍 Buat Kamu 🤍</h2>
 
-  <!-- Halaman Depan Rumah -->
-  <div id="screen1" class="screen show" style="background-image: url('https://images.unsplash.com/photo-1544986581-efac024faf62?q=80&w=1920');">
-    <div class="box">
-      <h1>Hai Gladys 💙</h1>
-      <p>Ada sebuah rumah kecil yang mau kamu kunjungi.</p>
-      <button onclick="masukRumah()">Masuk Rumah</button>
-    </div>
-  </div>
+    <label>Tuliskannn perasaannn kamuuu selamaaa kitaaa samaaa samaaa terussssss</label>
+    <textarea id="feelings" placeholder="Tulis di sini..."></textarea>
 
-  <!-- Halaman Dalam Rumah -->
-  <div id="screen2" class="screen" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1920');">
-    <div class="box">
-      <h2>Selamat datang di rumah kecil ini</h2>
-      <p>Ada seekor kucing yang mau ngobrol sama kamu 🐱</p>
-      <img id="cat" src="https://cdn.pixabay.com/photo/2017/01/31/13/14/cat-2020536_1280.png" alt="Kucing" onclick="chatKucing()" />
-      <div id="chat" class="chat"></div>
-      <button onclick="pesanAkhir()">Dengar pesan terakhir</button>
-    </div>
-  </div>
+    <label>Kasiiii tauu akuu apaa yangg kamuu mauu dann harapannn kamuuu</label>
+    <textarea id="hopes" placeholder="Tulis di sini..."></textarea>
 
-  <!-- Halaman Ending -->
-  <div id="screen3" class="screen" style="background: radial-gradient(circle at top, #1e293b, #020617);">
-    <div class="box">
-      <h1>Happy Valentine 💙</h1>
-      <p>
-        Terima kasih sudah mampir ke dunia kecil ini.  
-        Ada seseorang yang mikirin kamu hari ini, besok, dan entah kenapa cukup sering.
-      </p>
-      <p>
-        Semoga kamu selalu ngerasa ditemenin, bahkan pas lagi capek.
-      </p>
+    <button onclick="showMessage()">Kirim 🤍</button>
+
+    <div id="message" class="long-text hidden">
+HYYYYYY GLADDD MY PRINCESSS,BOCHILLLL,SAYANGGG,CINTAAA KUUU MAKASII YAAA UDAAA JAWABBBB ITUUUUUU
+NAHHHH AKUUU SENANGGG BANGETTT KITAAA MASIHHH SAMAAAAAAAAAAAA KITA LEWATINNN SEMUAA BADAIII DENGANN BAIKK 
+AKUU SENANGG KAMUUU GAA NYERAHH SAMAAA KEADAANNN KAMUUU BISAAA LEWATINN SEMUANYAA 
+DARI AWAL KITA KENALANN (18 OKTOBER 2025) AKU KIRA KAMU CUMAN ORANG YANG NUMPANG SV DOANKK TERNYATA ENGGAA, 
+KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍🤍, AKUU BARU TAUU KAMU SUKAA AKUU DARI TEMAN TEMAN AKUU ITU BUAT AKUU GA NYANGKAA SOALNYAA KAMUU CANTII,LUCUUU, DANN PERFEKK DIMATAA AKUUU, SEORANG KAYAK KAMUU BISAA SUKAA AKUUU PADAHALL AKU B AJAA, DANN SAATT AKU ULTAHHH KAMUU KASII AKU HADIAHH (23 OKTOBER 2025) ITUU HADIAH COKLATT PERTAMAA DALAMM HIDUPKUU DIKASII SAMAA CEWEEE APALAGIII CEWEE KAYAKK KAMUUU💕💕, TERUSSSS (12 NOVEMBER 2025) AKUU KASII HADIAHH PERTAMAAA DARII AKUU UNTUK KAMUU YAITU BONEKAA DAN YUPIIII ITUU BONEKAA AKUU CAPITT GA DAPETT SAMPAII AKUU BERDOAA KE TUHANN BUATT SEMOGAA AKUU BISA DAPAT ITU UNTUK KAMUU DANN AKU BERHASILL DAPATTT, LALUUU KITAA AKHIRNYAA JADIANN KARENAA TERNYATAAA PERASAAAN KITAA SAMAAA(23 NOVEMBER 2025) ITUU TANGGAL ULTAHKUU TAPII BULANNYA BEDAA BISA GITU YAA, SENANG BANGETT SII BISAAA PACARAN SAMA KAMUU, (6 DESEMBER 2025) INII FIRST DATE PERTAMAA AKU TEGANG BANGETT SOALNYAA KITAA GA AKRABB KANNN TAPII LUCUU SIII HAHAHA AKUU SENANGG BANGETTT KITAA DOUBLE DATE BADMINTONN, NAHH INIII (19 DESEMBER 2025) PERTAMAAA KALIII NGEDATEE CUMANN BEDUAAA DOANKK AKUU USAHAINNN CAKEPPP BUATTT KAMUU, AKUUU SENANGGGGGG SEKALIII KITA BISAA BEDUAA NONTONN JALANNN APALAGII NONTONN AVATARR 3 JAMM ITUU COCOKKK BANGETT PASS NONTONN KAMUU NYANDERR DI AKUU DISITU AKUU BAHAGIAA BANGETTTT ADOHHHHH, KITAA NONTONN RAMEE RAMEE LAGII PASS ULTAHNYAA JACKLYN SAMAA JEJES (2 JANUARI 2026) SERUU BANGETT YAAA KITAA DI TRAKTIRRR JACKLYNN HAHAHA, LALUU MAINN HEWAN HEWAN, DISITUU PERTAMAA KALII KITAA PEGANGAN TANGANN UDAAA AKRABB SIII SAMPEE PASS DI HARI SABTUU KITA MAU NONTON TAPI GAJADII JADINYAA HARI MINGGUU DAN YAPP ITU MEMBAWAAA KEBAHAGIANNN (18 JANUARII 2026) MAKASII YAAAA BAPAA ENGKAUU TELAHH MEMBUATT RENCANAA YANG LEBIHH BAIKK, PAS DI MARII AKU TUNGGU KAMUU TERNYATA KAMU SAMA PAPI MAMI MUU AKUU KAGETT BANGETT TAPII GAPAPALAAA, SEPANJANGG JALANN SEBELUM NONTON KITAA GANDENGAN TERUS DAN PAS MAU NONTONNN KITA GA DIBOLEHINN SAMAA MBANYAA 😠😠 TAPII GAPAPA DEHH DIGANTII UANGG PANAII, PAS DIDALMM TEATERR KAMUU PEGANGG MUKAAA AKUU LALUU AKU NYANDER DI BAHU KAMUU AKUU DI TREAT KAYAKK BOCHILLL 🤍🤍😊 SUKAAA BANGETTT, PAS PULANGG KITAA KE GEREJAAAA SAMAAAA DANNN PIGII JALANN, MAKANNN, SEHARIANN KITAA SAMAAA INIII PARTTT OF THE MOSTT BEATIFULL MOMENNTT YANGGG PERNAHH AKUU RASAINN, AKUU SENANGG BANGETT KENALANN SAMAA KAMUU AKUU DII TREATT KAYAKK BOCHILL DANN MAMI AKUU TERIMA KAMUU SEBAGAII CEWE AKUU ITUU UDAA BUAT AKU SENANGG JUGGAA , AKUU HARAPP MOMEN MOMEN KECILL INII AKANN SELALUU ADAAA YAAAA, PESANN AKUU UNTUKK KAMUU JANGANN MAMM INDOMIEEEE TELUSSS YAA JAGAAAA DIRIII MAAFF YAAAA KALAUU AKUUU SELALUU BUATT KAMUU NANGISS🙏🙏 AKUUU GASUKAA KALAUU AKUU GITUUU KALAUU AKUU NYAKITINN KAMUU AKUU JUGAA KAYAKK TERSAKITII SOALNYAAA AKUU GAA TEGAAA KALAUU BOCHILL TERLUCUU AKUU AKUU BUATT SEDIII AKUU KEDEPANNYAA AKANNN LEBII BAIKK LAGIIIII, AKUUU TAUU KAMUU ADALAAA CEWEE KUATTT KAMUU JUGAA UDAA BISAA CERITAA MASALAHH KAMUU KE AKUU INTINYAA PASS KITA KENALANN KITAAA SALINGG CURHATT ITU BUAT AKUU PERCAYA BAHWA ADA RUMAH YANG BISAA DITEMPATII UNTUKK TENANGINN DIRII AKUU, DANN AKUU AKANN SELAKUU ADAA UNTUKK KAMUUU, MAKASII UDAA MAUU SAMAA AKUUU YAAAA CANTIIII, AKU SENANGGGG BANYAKK BANGETTT MOMENN MOMENN KECILLL YANG INDAHHH AKUU HARAPPP DII HARII VALENTINEEEE INIII KITAA BISAAA SENANGG SENANGGG YAAAA, HAPPYYY VALENTINEEEEE SAYANKKKK🤍🤍🎉🎉
     </div>
   </div>
 
   <script>
-    const chats = [
-      "Hai Gladys, aku kucing penjaga rumah ini 🐾",
-      "Pemilik rumah ini bikin tempat ini khusus buat kamu.",
-      "Katanya, kamu itu rumah yang bikin dia pengen pulang.",
-      "Jangan lupa istirahat ya, kamu nggak sendirian.",
-      "Aku cuma kucing, tapi aku tahu: kamu itu berarti."
-    ];
-    let chatIndex = 0;
+    function showMessage() {
+      const f = document.getElementById("feelings").value.trim();
+      const h = document.getElementById("hopes").value.trim();
 
-    function masukRumah() {
-      document.getElementById("screen1").classList.remove("show");
-      document.getElementById("screen2").classList.add("show");
-    }
+      if (f === "" || h === "") {
+        alert("Isi dulu dua-duanya yaa 😠");
+        return;
+      }
 
-    function chatKucing() {
-      document.getElementById("chat").innerText = chats[chatIndex];
-      chatIndex = (chatIndex + 1) % chats.length;
-    }
-
-    function pesanAkhir() {
-      document.getElementById("screen2").classList.remove("show");
-      document.getElementById("screen3").classList.add("show");
+      document.getElementById("message").classList.remove("hidden");
     }
   </script>
-
 </body>
 </html>
