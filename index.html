@@ -1,175 +1,129 @@
 <!DOCTYPE html>
 <html lang="id">
-<head> <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</head>
+<head>
   <meta charset="UTF-8" />
-  <title>For Bochillllkuuu🤍</title>
+  <title>Untuk Gladys 💙</title>
   <style>
     body {
-        margin: 0;
-         height: 100vh;
-         font-family: 'roberto', cursive;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-         overflow: hidden;
-    }
-    h1 { 
-        font-family: 'pacifico', cursive;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      overflow: hidden;
     }
 
-    .card {
-      background: rgba(255,255,255,0.92);
-      padding: 28px 34px;
-      border-radius: 16px;
-      text-align: center;
-      max-width: 560px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      z-index: 2;
+    .screen {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1s ease;
     }
-    h1 { color: #ff4d6d; font-size: 22px; line-height: 1.4; }
+
+    .show {
+      display: flex;
+    }
+
     button {
-      margin-top: 14px;
-      padding: 10px 24px;
+      margin-top: 20px;
+      padding: 12px 24px;
       border: none;
-      border-radius: 20px;
-      background: #ff4d6d;
-      color: white;
+      border-radius: 12px;
+      background: #60a5fa;
+      color: #0f172a;
       font-size: 16px;
       cursor: pointer;
     }
-    textarea {
-      width: 100%;
-      min-height: 90px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      font-size: 14px;
-      resize: vertical;
-    }
-    .hidden { display: none; }
 
-    /* background running texts */
-    .loveText {
-      position: fixed;
-      white-space: nowrap;
-      font-weight: bold;
-      color: rgba(255,255,255,0.75);
-      animation: move linear infinite;
-      pointer-events: none;
-      z-index: 1;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    button:hover {
+      background: #93c5fd;
     }
-    @keyframes move {
-      from { transform: translateX(-120vw); }
-      to { transform: translateX(120vw); }
+
+    .box {
+      background: rgba(0,0,0,0.5);
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 80%;
+    }
+
+    #cat {
+      width: 200px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .chat {
+      margin-top: 16px;
+      min-height: 60px;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <audio id="Bgmusic" autoplay loop>
-    <source src="" type="audio/mpeg">
-  </audio>
 
-  <!-- PAGE 1 -->
-  <div class="card" id="page1">
-    <h1>Halooooo inii klikk yaaa 🤍🤍</h1>
-    <button onclick="goPage(2)">Klik</button>
+  <!-- Halaman Depan Rumah -->
+  <div id="screen1" class="screen show" style="background-image: url('https://images.unsplash.com/photo-1544986581-efac024faf62?q=80&w=1920');">
+    <div class="box">
+      <h1>Hai Gladys 💙</h1>
+      <p>Ada sebuah rumah kecil yang mau kamu kunjungi.</p>
+      <button onclick="masukRumah()">Masuk Rumah</button>
+    </div>
   </div>
 
-  <!-- PAGE 2 -->
-  <div class="card hidden" id="page2">
-    <h1>Tuliskannnn Perasaannn kamuu selamaaa samaaa akuuuu</h1>
-    <textarea id="msg1" placeholder="Tulis di sini..."></textarea>
-    <br />
-    <button onclick="goPage(3)">Kirim</button>
+  <!-- Halaman Dalam Rumah -->
+  <div id="screen2" class="screen" style="background-image: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1920');">
+    <div class="box">
+      <h2>Selamat datang di rumah kecil ini</h2>
+      <p>Ada seekor kucing yang mau ngobrol sama kamu 🐱</p>
+      <img id="cat" src="https://cdn.pixabay.com/photo/2017/01/31/13/14/cat-2020536_1280.png" alt="Kucing" onclick="chatKucing()" />
+      <div id="chat" class="chat"></div>
+      <button onclick="pesanAkhir()">Dengar pesan terakhir</button>
+    </div>
   </div>
 
-  <!-- PAGE 3 -->
-  <div class="card hidden" id="page3">
-    <h1>Kasiiii tauuu akuuuu permintaaann kamuuu dann harapann kamuu ke akuuu</h1>
-    <textarea id="msg2" placeholder="Tulis di sini..."></textarea>
-    <br />
-    <button onclick="goPage(4)">Kirim</button>
-  </div>
-
-  <!-- PAGE 4 -->
-  <div class="card hidden" id="page4">
-    <h1><br><br>
-      HYYYYYY GLADDD MY PRINCESSS,BOCHILLLL,SAYANGGG,CINTAAA KUUU MAKASII YAAA UDAAA JAWABBBB ITUUUUUU, 
-      NAHHHH AKUUU SENANGGG BANGETTT KITAAA MASIHHH SAMAAAAAAAAAAAA KITA LEWATINNN SEMUAA BADAIII DENGANN BAIKK AKUU SENANGG KAMUUU GAA NYERAHH SAMAAA KEADAANNN 
-      KAMUUU BISAAA LEWATINN SEMUANYAA DARI AWAL KITA KENALANN (18 OKTOBER 2025) AKU KIRA KAMU CUMAN ORANG YANG NUMPANG SV DOANKK TERNYATA ENGGAA, 
-      KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍🤍, 
-      AKUU BARU TAUU KAMU SUKAA AKUU DARI TEMAN TEMAN AKUU ITU BUAT AKUU GA NYANGKAA SOALNYAA KAMUU CANTII,LUCUUU, DANN PERFEKK DIMATAA AKUUU, 
-      SEORANG KAYAK KAMUU BISAA SUKAA AKUUU PADAHALL AKU B AJAA, 
-      <br><br>
-      DANN SAATT AKU ULTAHHH KAMUU KASII AKU HADIAHH (23 OKTOBER 2025) ITUU HADIAH COKLATT PERTAMAA DALAMM HIDUPKUU DIKASII SAMAA CEWEEE APALAGIII CEWEE KAYAKK KAMUUU💕💕, 
-      <br><br>
-      TERUSSSS (12 NOVEMBER 2025) AKUU KASII HADIAHH PERTAMAAA DARII AKUU UNTUK KAMUU YAITU BONEKAA DAN YUPIIII ITUU BONEKAA AKUU CAPITT GA DAPETT SAMPAII AKUU BERDOAA KE TUHANN BUATT SEMOGAA AKUU BISA DAPAT ITU  UNTUK KAMUU DANN AKU BERHASILL DAPATTT,
-       <br><br>
-      LALUUU KITAA AKHIRNYAA JADIANN KARENAA TERNYATAAA PERASAAAN KITAA SAMAAA(23 NOVEMBER 2025) ITUU TANGGAL ULTAHKUU TAPII BULANNYA BEDAA BISA GITU YAA, SENANG BANGETT SII BISAAA PACARAN SAMA KAMUU, 
-       <br><br>
-      (6 DESEMBER 2025) INII FIRST DATE PERTAMAA AKU TEGANG BANGETT SOALNYAA KITAA GA AKRABB KANNN TAPII LUCUU SIII HAHAHA AKUU SENANGG BANGETTT KITAA DOUBLE DATE BADMINTONN, 
-       <br><br>
-      NAHH INIII (19 DESEMBER 2025) PERTAMAAA KALIII NGEDATEE CUMANN BEDUAAA DOANKK AKUU USAHAINNN CAKEPPP BUATTT KAMUU, 
-       AKUUU SENANGGGGGG SEKALIII KITA BISAA BEDUAA NONTONN JALANNN APALAGII NONTONN AVATARR 3 JAMM ITUU COCOKKK BANGETT PASS NONTONN KAMUU NYANDERR DI AKUU DISITU AKUU BAHAGIAA BANGETTTT ADOHHHHH,  
-       <br><br>
-       KITAA NONTONN RAMEE RAMEE LAGII PASS ULTAHNYAA JACKLYN SAMAA JEJES (2 JANUARI 2026) SERUU BANGETT YAAA KITAA DI TRAKTIRRR JACKLYNN HAHAHA, LALUU MAINN HEWAN HEWAN, 
-       DISITUU PERTAMAA KALII KITAA PEGANGAN TANGANN UDAAA AKRABB SIII SAMPEE PASS DI HARI SABTUU KITA MAU NONTON TAPI GAJADII JADINYAA HARI MINGGUU DAN YAPP ITU MEMBAWAAA KEBAHAGIANNN 
-       <br><br>
-       (18 JANUARII 2026) MAKASII YAAAA BAPAA ENGKAUU TELAHH MEMBUATT RENCANAA YANG LEBIHH BAIKK, PAS DI MARII AKU TUNGGU KAMUU TERNYATA KAMU SAMA PAPI MAMI MUU AKUU KAGETT BANGETT TAPII GAPAPALAAA, 
-       SEPANJANGG JALANN SEBELUM NONTON KITAA GANDENGAN TERUS DAN PAS MAU NONTONNN KITA GA DIBOLEHINN SAMAA MBANYAA 😠😠 TAPII GAPAPA DEHH DIGANTII UANGG PANAII, 
-       PAS DIDALMM TEATERR KAMUU PEGANGG MUKAAA AKUU LALUU AKU NYANDER DI BAHU KAMUU AKUU DI TREAT KAYAKK BOCHILLL 🤍🤍😊 SUKAAA BANGETTT, 
-       <br><br>
-       PAS PULANGG KITAA KE GEREJAAAA SAMAAAA DANNN PIGII JALANN, MAKANNN, SEHARIANN KITAA SAMAAA INIII PARTTT OF THE MOSTT BEATIFULL MOMENNTT YANGGG PERNAHH AKUU RASAINN,
-       AKUU SENANGG BANGETT KENALANN SAMAA KAMUU AKUU DII TREATT KAYAKK BOCHILL DANN MAMI AKUU TERIMA KAMUU SEBAGAII CEWE AKUU ITUU UDAA BUAT AKU SENANGG JUGGAA , 
-       <br><br>
-       AKUU HARAPP MOMEN MOMEN KECILL INII AKANN SELALUU ADAAA YAAAA, PESANN AKUU UNTUKK KAMUU JANGANN MAMM INDOMIEEEE TELUSSS YAA JAGAAAA DIRIII MAAFF YAAAA KALAUU AKUUU SELALUU BUATT KAMUU NANGISS🙏🙏 
-       AKUUU GASUKAA KALAUU AKUU GITUUU KALAUU AKUU NYAKITINN KAMUU AKUU JUGAA KAYAKK TERSAKITII SOALNYAAA AKUU GAA TEGAAA KALAUU BOCHILL TERLUCUU AKUU AKUU BUATT SEDIII AKUU KEDEPANNYAA AKANNN LEBII BAIKK LAGIIIII, 
-      <br><br>
-       AKUUU TAUU KAMUU ADALAAA CEWEE KUATTT KAMUU JUGAA UDAA BISAA CERITAA MASALAHH KAMUU KE AKUU INTINYAA PASS KITA KENALANN KITAAA SALINGG CURHATT ITU BUAT AKUU PERCAYA BAHWA ADA RUMAH YANG BISAA DITEMPATII UNTUKK TENANGINN DIRII AKUU, 
-       DANN AKUU AKANN SELAKUU ADAA UNTUKK KAMUUU, MAKASII UDAA MAUU SAMAA AKUUU YAAAA CANTIIII, AKU SENANGGGG BANYAKK BANGETTT MOMENN MOMENN KECILLL YANG INDAHHH AKUU HARAPPP DII HARII VALENTINEEEE INIII KITAA BISAAA SENANGG SENANGGG YAAAA,  
-       HAPPYYY VALENTINEEEEE SAYANKKKK🤍🤍🎉🎉
-    </h1>
-    <button onclick="sendAll()">Selesaiiii yaa?? Kirimm sinii</button>
-    <p style="font-size:9px;color:#777;">
-      (Nanti kebuka WhatsApp kamu, tinggal tekan Kirim)
-    </p>
+  <!-- Halaman Ending -->
+  <div id="screen3" class="screen" style="background: radial-gradient(circle at top, #1e293b, #020617);">
+    <div class="box">
+      <h1>Happy Valentine 💙</h1>
+      <p>
+        Terima kasih sudah mampir ke dunia kecil ini.  
+        Ada seseorang yang mikirin kamu hari ini, besok, dan entah kenapa cukup sering.
+      </p>
+      <p>
+        Semoga kamu selalu ngerasa ditemenin, bahkan pas lagi capek.
+      </p>
+    </div>
   </div>
 
   <script>
-    function goPage(n) {
-      ["page1","page2","page3","page4"].forEach(id =>
-        document.getElementById(id).classList.add("hidden")
-      );
-      document.getElementById("page" + n).classList.remove("hidden");
+    const chats = [
+      "Hai Gladys, aku kucing penjaga rumah ini 🐾",
+      "Pemilik rumah ini bikin tempat ini khusus buat kamu.",
+      "Katanya, kamu itu rumah yang bikin dia pengen pulang.",
+      "Jangan lupa istirahat ya, kamu nggak sendirian.",
+      "Aku cuma kucing, tapi aku tahu: kamu itu berarti."
+    ];
+    let chatIndex = 0;
+
+    function masukRumah() {
+      document.getElementById("screen1").classList.remove("show");
+      document.getElementById("screen2").classList.add("show");
     }
 
-    function sendAll() {
-      const m1 = document.getElementById("msg1").value.trim();
-      const m2 = document.getElementById("msg2").value.trim();
-      const finalMsg =
-        "Perasaan kamu:\n" + m1 + "\n\n" +
-        "Permintaan & harapan:\n" + m2;
-
-      const waNumber = "6285126071559"; // nomor kamu
-      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(finalMsg)}`;
-      window.open(url, "_blank");
+    function chatKucing() {
+      document.getElementById("chat").innerText = chats[chatIndex];
+      chatIndex = (chatIndex + 1) % chats.length;
     }
 
-    // generate running love texts everywhere
-    function spawnLove() {
-      const el = document.createElement("div");
-      el.className = "loveText";
-      el.innerText = "I LOVEEEEEEEEEEE UUUUUUUUU 🤍🤍";
-      el.style.top = Math.random() * 100 + "vh";
-      el.style.fontSize = (Math.random() * 18 + 22) + "px";
-      el.style.animationDuration = (Math.random() * 7 + 9) + "s";
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 25000);
+    function pesanAkhir() {
+      document.getElementById("screen2").classList.remove("show");
+      document.getElementById("screen3").classList.add("show");
     }
-    setInterval(spawnLove, 250);
   </script>
 
 </body>
