@@ -87,6 +87,8 @@
     <textarea id="hopes" placeholder="Tulis di sini..."></textarea>
 
     <button onclick="showMessage()">Kirim 🤍</button>
+    <div id="answers" class="long-text hidden"></div>
+
 
     <div id="message" class="long-text hidden">
 HYYYYYY GLADDD MY PRINCESSS,BOCHILLLL,SAYANGGG,CINTAAA KUUU MAKASII YAAA UDAAA JAWABBBB ITUUUUUU
@@ -98,17 +100,27 @@ KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍�
   </div>
 
   <script>
-    function showMessage() {
-      const f = document.getElementById("feelings").value.trim();
-      const h = document.getElementById("hopes").value.trim();
+  function showMessage() {
+    const f = document.getElementById("feelings").value.trim();
+    const h = document.getElementById("hopes").value.trim();
 
-      if (f === "" || h === "") {
-        alert("Isi dulu dua-duanya yaa 😠");
-        return;
-      }
-
-      document.getElementById("message").classList.remove("hidden");
+    if (f === "" || h === "") {
+      alert("Isi dulu dua-duanya yaa 😠");
+      return;
     }
-  </script>
+
+    // Munculin pesan panjang kamu
+    document.getElementById("message").classList.remove("hidden");
+
+    // Munculin jawaban dia di layar
+    const ansBox = document.getElementById("answers");
+    ansBox.classList.remove("hidden");
+    ansBox.innerText =
+      "Perasaan kamu:\n" + f + "\n\n" +
+      "Harapan kamu:\n" + h;
+  }
+</script>
+
 </body>
 </html>
+
