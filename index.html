@@ -83,12 +83,29 @@
         font-size: 12px;
 
     }
-    .Wa-button {
+    .Wa button {
       margin-top: 12px;
       background: #f6f6f6;
       color: #000;
 
     }
+
+     .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 16px;
+      animation: fall linear forwards;
+      color: #f6f6f6;
+      pointer-events: none;
+
+     }
+
+     @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+     }
       
   </style>
 </head>
@@ -130,6 +147,21 @@ KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍�
   </div>
 
   <script>
+  function typeWriter(element, text, speed = 20) {
+    let i = 0;
+    element.innerText = "";
+    element.classList.remove("hidden");
+
+    const typing = setInterval(() => {
+      if (i < text.length) {
+        element.innerText += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typing);
+      }
+    }, speed);
+  }
+
   function showMessage() {
     const f = document.getElementById("feelings").value.trim();
     const h = document.getElementById("hopes").value.trim();
@@ -138,8 +170,6 @@ KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍�
       alert("Isi dulu dua-duanya yaa 😠");
       return;
     }
-
-    document.getElementById("message").classList.remove("hidden");
 
     const ansBox = document.getElementById("answers");
     ansBox.classList.remove("hidden");
@@ -150,30 +180,43 @@ KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍�
     document.getElementById("feelings").disabled = true;
     document.getElementById("hopes").disabled = true;
 
+    // Ambil teks panjangmu dulu
+    const msgEl = document.getElementById("message");
+    const fullText = msgEl.innerText;
+
+    // Jalankan efek ngetik
+    typeWriter(msgEl, fullText, 15);
+
     // === SIAPIN PESAN KE WA ===
     const waText =
       "Perasaan aku:\n" + f + "\n\n" +
-      "Harapanku:\n" + h + "\n\n" + 
-       "dikirim dari web buatan kamu <3";
+      "Harapanku:\n" + h + "\n\n" +
+      "dikirim dari web buatan kamu 🤍";
 
-    
     const encoded = encodeURIComponent(waText);
-
-    // GANTI NOMOR WA KAMU DI SINI (format internasional, tanpa +)
     const waNumber = "6285126071559";
-
     const waLink = "https://wa.me/" + waNumber + "?text=" + encoded;
 
     const waBtn = document.getElementById("waBTN");
     waBtn.href = waLink;
     waBtn.classList.remove("hidden");
   }
-</script>
 
+  // === EFEK HATI JATUH ===
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 500);
+</script>
 
 </body>
 </html>
-
 
 
 
