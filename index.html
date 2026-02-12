@@ -75,7 +75,7 @@
       white-space: pre-wrap;
     }
 
-    Small {
+    small {
         display: block;
         margin-top: 6px;
         color: #ccc;
@@ -83,7 +83,7 @@
         font-size: 12px;
 
     }
-    .Wa button {
+    .wa button {
       margin-top: 12px;
       background: #f6f6f6;
       color: #000;
@@ -99,6 +99,20 @@
       pointer-events: none;
 
      }
+
+     .card {
+      box-shadow: 0 0 20px rgba(255, 111, 174, 0.3);
+     }
+
+     .long-text {
+      animation: fadeIn 0.6s ease;
+     }
+
+     @keyframes fadeIn {
+     from { opacity: 0; transform: translateY(10px); }
+     to { opacity: 1; transform: translateY(0); }
+     }
+
 
      @keyframes fall {
       to {
@@ -147,7 +161,7 @@ KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍�
   </div>
 
   <script>
-  function typeWriter(element, text, speed = 20) {
+  function typeWriter(element, text, speed = 60) {
     let i = 0;
     element.innerText = "";
     element.classList.remove("hidden");
@@ -185,7 +199,7 @@ KAMUU HEBATT BANGETT BISAA BERANII CHATT KAMUU BEDA DARII YANGG LAINN 🤍🤍�
     const fullText = msgEl.innerText;
 
     // Jalankan efek ngetik
-    typeWriter(msgEl, fullText, 15);
+    typeWriter(msgEl, fullText, 80);
 
     // === SIAPIN PESAN KE WA ===
     const waText =
